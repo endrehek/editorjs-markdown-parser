@@ -113,7 +113,7 @@ export default class MarkdownParser {
   /*
    * Saves the plugin data into JSON format (used as placeholder for UI)
   */
-  static save() {
+  save() {
     return {
       message: 'Downloading Markdown',
     };

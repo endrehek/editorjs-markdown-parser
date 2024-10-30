@@ -277,7 +277,7 @@ export default class MarkdownImporter {
    * Saves the plugin data into JSON format (used as placeholder for UI)
    * @return {Object} data - the plugin data
    */
-  static save() {
+  save() {
     return {
       message: 'Uploading Markdown',
     };
