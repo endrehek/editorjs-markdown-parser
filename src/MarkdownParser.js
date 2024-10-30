@@ -106,8 +106,8 @@ export default class MarkdownParser {
    * Function which takes saved editor data and runs the different parsing helper functions
    * @return Markdown file download
    */
-  async parse(blocks) {
-    const parsedData = await this.parseToMarkdown(blocks);
+  static async parse(blocks) {
+    const parsedData = await parseToMarkdown(blocks);
     return parsedData;
   }
 
