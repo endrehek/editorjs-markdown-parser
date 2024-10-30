@@ -6,6 +6,7 @@ import { parseImageToMarkdown } from './BlockTypeParsers/ImageTypeParser';
 import { parseCheckboxToMarkdown } from './BlockTypeParsers/CheckboxTypeParser';
 import { parseQuoteToMarkdown } from './BlockTypeParsers/QuoteTypeParser';
 import { parseCodeToMarkdown } from './BlockTypeParsers/CodeTypeParser';
+import { parseLinkToolToMarkdown } from './BlockTypeParsers/LinkToolTypeParser';
 import { fileDownloadHandler } from './FileHandler';
 
 /**
@@ -34,6 +35,8 @@ export async function parseToMarkdown(blocks) {
         return parseCodeToMarkdown(item.data);
       case 'checklist':
         return parseCheckboxToMarkdown(item.data);
+      case 'linkTool':
+        return parseLinkToolToMarkdown(item.data);
     }
   });
   return parsedData.join('\n');

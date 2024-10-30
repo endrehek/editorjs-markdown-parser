@@ -7,6 +7,7 @@ import { parseMarkdownToList } from './BlockTypeParsers/ListTypeParser';
 import { parseMarkdownToDelimiter } from './BlockTypeParsers/DelimiterTypeParser';
 import { parseMarkdownToCode } from './BlockTypeParsers/CodeTypeParser';
 import { parseMarkdownToQuote } from './BlockTypeParsers/QuoteTypeParser';
+import { parseMarkdownToLink } from './BlockTypeParsers/LinkToolTypeParser';
 
 export const editorData = [];
 
@@ -41,6 +42,9 @@ export async function parseToBlocks(content) {
         case 'blockquote':
           result.push(parseMarkdownToQuote(child));
           break;
+        case 'link':
+          result.push(parseMarkdownToLink(child));
+          break;
         default:
           result.push(parseMarkdownToParagraph(child));
           break;
@@ -59,10 +63,10 @@ export async function parseToBlocks(content) {
  * Markdown Import class
  */
 export default class MarkdownImporter {
-
   static get isReadOnlySupported() {
     return true;
   }
+
   /**
    * creates the Importer plugin
    * {editorData, api functions} - necessary to interact with the editor
