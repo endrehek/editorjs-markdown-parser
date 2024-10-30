@@ -147,7 +147,7 @@ export default class MarkdownImporter {
   * @param {Number} startIndex - the index to insert at
   * @return {Array} - the new array with the body inserted at the index
   */
-  static insertArray(target, body, startIndex) {
+  insertArray(target, body, startIndex) {
     const tail = target.splice(startIndex); // target is now [1,2] and the head
     return [].concat(target, body, tail);
   }
