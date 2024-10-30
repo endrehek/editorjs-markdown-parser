@@ -95,8 +95,6 @@ export default class MarkdownParser {
     return doc;
   }
 
-
-
   /**
    * Function which takes parsed data and creates a markdown file download
    */

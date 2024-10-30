@@ -1,4 +1,4 @@
-export default function parseCheckboxToMarkdown(blocks) {
+export function parseCheckboxToMarkdown(blocks) {
   let items = {};
 
   items = blocks.items.map((item) => {
