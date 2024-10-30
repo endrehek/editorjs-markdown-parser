@@ -38,6 +38,22 @@ export async function parseToMarkdown(blocks) {
   });
   return parsedData.join('\n');
 }
+
+export function getTimeStamp() {
+  const today = new Date();
+  const dd = String(today.getDate()).padStart(2, '0');
+  const mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
+  const yyyy = today.getFullYear();
+  const hh = today.getHours();
+  const min = today.getMinutes();
+  const sec = today.getSeconds();
+  return `_${dd}-${mm}-${yyyy}_${hh}-${min}-${sec}`;
+}
+
+export async function parse(blocks) {
+  const parsedData = await parseToMarkdown(blocks);
+  return parsedData;
+}
 /**
  * Markdown Parsing class
  */
@@ -74,41 +90,23 @@ export default class MarkdownParser {
   async render() {
     const doc = document.createElement('div');
     const data = await this.api.saver.save();
-    const content = await this.parse(data.blocks);
+    const content = await parse(data.blocks);
     this.download(content);
     return doc;
   }
 
-  static getTimeStamp() {
-    const today = new Date();
-    const dd = String(today.getDate()).padStart(2, '0');
-    const mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
-    const yyyy = today.getFullYear();
-    const hh = today.getHours();
-    const min = today.getMinutes();
-    const sec = today.getSeconds();
-    return `_${dd}-${mm}-${yyyy}_${hh}-${min}-${sec}`;
-  }
+
 
   /**
    * Function which takes parsed data and creates a markdown file download
    */
   async download(content) {
-    const timestamp = this.config.timestamp ? this.getTimeStamp() : '';
+    const timestamp = this.config.timestamp ? getTimeStamp() : '';
     // take parsed data and create a markdown file
     fileDownloadHandler(content, `${this.config.filename}${timestamp}.${this.config.extension}`);
     if (this.config.callback) {
       this.config.callback(content);
     }
-  }
-
-  /**
-   * Function which takes saved editor data and runs the different parsing helper functions
-   * @return Markdown file download
-   */
-  static async parse(blocks) {
-    const parsedData = await parseToMarkdown(blocks);
-    return parsedData;
   }
 
   /*
