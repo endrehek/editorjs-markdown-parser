@@ -11,9 +11,8 @@ export function parseHeaderToMarkdown(blocks) {
     case 5:
       return `##### ${blocks.text}\n`;
     case 6:
-      return `###### ${blocks.text}\n`;
     default:
-      break;
+      return `###### ${blocks.text}\n`;
   }
 }
 
@@ -82,6 +81,7 @@ export function parseMarkdownToHeader(blocks) {
 
       return headerData;
     case 6:
+    default:
       blocks.children.forEach((item) => {
         headerData = {
           data: {
@@ -93,7 +93,5 @@ export function parseMarkdownToHeader(blocks) {
       });
 
       return headerData;
-    default:
-      break;
   }
 }

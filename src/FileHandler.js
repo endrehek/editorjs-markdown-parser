@@ -4,7 +4,7 @@
  * @param filename
  *
  */
-export function fileDownloadHandler(content, fileName) {
+export default function fileDownloadHandler(content, fileName) {
   const file = new File([content], { type: 'text/markdown', endings: 'transparent' });
   const url = URL.createObjectURL(file);
 
