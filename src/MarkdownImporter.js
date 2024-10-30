@@ -59,6 +59,10 @@ export async function parseToBlocks(content) {
  * Markdown Import class
  */
 export default class MarkdownImporter {
+
+  static get isReadOnlySupported() {
+    return true;
+  }
   /**
    * creates the Importer plugin
    * {editorData, api functions} - necessary to interact with the editor
