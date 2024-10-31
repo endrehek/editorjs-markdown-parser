@@ -7,6 +7,7 @@ import { parseCheckboxToMarkdown } from './BlockTypeParsers/CheckboxTypeParser';
 import { parseQuoteToMarkdown } from './BlockTypeParsers/QuoteTypeParser';
 import { parseCodeToMarkdown } from './BlockTypeParsers/CodeTypeParser';
 import { parseLinkToolToMarkdown } from './BlockTypeParsers/LinkToolTypeParser';
+import { parseTableToMarkdown } from './BlockTypeParsers/TableTypeParser';
 import { fileDownloadHandler } from './FileHandler';
 
 /**
@@ -37,6 +38,8 @@ export async function parseToMarkdown(blocks) {
         return parseCheckboxToMarkdown(item.data);
       case 'linkTool':
         return parseLinkToolToMarkdown(item.data);
+      case 'table':
+        return parseTableToMarkdown(item.data);
     }
   });
   return parsedData.join('\n');

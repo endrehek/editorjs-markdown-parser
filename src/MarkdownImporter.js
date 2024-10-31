@@ -8,6 +8,7 @@ import { parseMarkdownToDelimiter } from './BlockTypeParsers/DelimiterTypeParser
 import { parseMarkdownToCode } from './BlockTypeParsers/CodeTypeParser';
 import { parseMarkdownToQuote } from './BlockTypeParsers/QuoteTypeParser';
 import { parseMarkdownToLink } from './BlockTypeParsers/LinkToolTypeParser';
+import { parseMarkdownToTable } from './BlockTypeParsers/TableTypeParser';
 
 export const editorData = [];
 
@@ -44,6 +45,9 @@ export async function parseToBlocks(content) {
           break;
         case 'link':
           result.push(parseMarkdownToLink(child));
+          break;
+        case 'table':
+          result.push(parseMarkdownToTable(child));
           break;
         default:
           result.push(parseMarkdownToParagraph(child));
