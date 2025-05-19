@@ -26,7 +26,7 @@ module.exports = {
       },
     ],
   },
-  node: { global: true, fs: 'empty' },
+  node: { global: true },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js',
