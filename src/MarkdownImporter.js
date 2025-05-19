@@ -155,6 +155,7 @@ export default class MarkdownImporter {
   * @param {Number} startIndex - the index to insert at
   * @return {Array} - the new array with the body inserted at the index
   */
+  // eslint-disable-next-line class-methods-use-this
   insertArray(target, body, startIndex) {
     const tail = target.splice(startIndex); // target is now [1,2] and the head
     return [].concat(target, body, tail);
@@ -173,17 +174,20 @@ export default class MarkdownImporter {
     let blocksData = (this.config.append)
       ? this.insertArray(data.blocks, toBlocksData, this.api.blocks.getCurrentBlockIndex())
       : toBlocksData;
-    blocksData = blocksData.filter((item) => item.type !== 'markdownImporter'); // filter through array and remove empty objects
+    blocksData = blocksData.filter((item) => item.type !== 'markdownImporter');
+
+    // Filter blocks and remove empty paragraphs
+    blocksData = blocksData.filter((block) => (!(block.type === 'paragraph' && block.data.text === '')));
 
     // render the editor with imported markdown data
     this.api.blocks.render({
-      blocks: blocksData, // filter through array and remove empty objects
+      blocks: blocksData,
     });
 
     // call the callback function
     if (this.config.callback) {
       this.config.callback({
-        blocks: blocksData, // filter through array and remove empty objects
+        blocks: blocksData,
       });
     }
   }
@@ -285,6 +289,7 @@ export default class MarkdownImporter {
    * Saves the plugin data into JSON format (used as placeholder for UI)
    * @return {Object} data - the plugin data
    */
+  // eslint-disable-next-line class-methods-use-this
   save() {
     return {
       message: 'Uploading Markdown',

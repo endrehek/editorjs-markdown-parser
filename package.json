@@ -18,9 +18,9 @@
     "eslint-config-airbnb-base": "14.2.0",
     "eslint-loader": "^4.0.2",
     "eslint-plugin-import": "2.22.0",
-    "webpack": "^4.44.1",
-    "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0",
+    "webpack": "^5.99.8",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.1",
     "webpack-merge-and-include-globally": "^2.1.26"
   },
   "main": "./dist/bundle.js",
@@ -29,6 +29,6 @@
     "remark": "^13.0.0",
     "remark-gfm": "^3.0.1",
     "remark-parse": "^9.0.0",
-    "require": "^2.4.20"
+    "require": "^0.4.4"
   }
 }
