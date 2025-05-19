@@ -18,7 +18,9 @@ export function parseMarkdownToList(blocks) {
   blocks.children.forEach((items) => {
     items.children.forEach((listItem) => {
       listItem.children.forEach((listEntry) => {
-        itemData.push(listEntry.value);
+        if (listEntry !== undefined) {
+          itemData.push(listEntry.value);
+        }
       });
     });
   });
