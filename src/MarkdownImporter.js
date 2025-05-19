@@ -1,5 +1,6 @@
 import * as remark from 'remark';
 import remarkParse from 'remark-parse';
+import remarkGfm from 'remark-gfm';
 
 import { parseMarkdownToHeader } from './BlockTypeParsers/HeaderTypeParser';
 import { parseMarkdownToParagraph } from './BlockTypeParsers/ParagraphTypeParser';
@@ -19,7 +20,10 @@ export const editorData = [];
  */
 export async function parseToBlocks(content) {
   // parse markdown to editor data
-  const parsedMarkdown = remark().use(remarkParse, { commonmark: true }).parse(content);
+  const parsedMarkdown = remark()
+    .use(remarkParse, { commonmark: true })
+    .use(remarkGfm)
+    .parse(content);
   // parse children recursively and return editor data blocks
   function parseChildren(children) {
     const result = [];
