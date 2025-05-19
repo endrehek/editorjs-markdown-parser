@@ -7,15 +7,16 @@ A plugin which allows the user to export the EditorJS data to Markdown and impor
 
 ## Table of Contents
 
-* [About the Project](#about-the-project)
-  * [Built With](#built-with)
-* [Getting Started](#getting-started)
-  * [Prerequisites](#prerequisites)
-  * [Installation](#installation)
-* [Usage](#usage)
-* [Contributing](#contributing)
-* [License](#license)
-* [Acknowledgements](#acknowledgements)
+- [Table of Contents](#table-of-contents)
+- [About The Project](#about-the-project)
+  - [Built With](#built-with)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Acknowledgements](#acknowledgements)
 
 
 
@@ -34,22 +35,23 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-- yarn
+
 
 ### Installation
 
 1. Clone the repo
 ```sh
-git clone https://github.com/stejul/editorjs-markdown-parser
+git clone https://github.com/endrehek/editorjs-markdown-parser.git
 ```
 2. Install packages
 ```sh
-yarn
+npm i 
 ```
 
 ## Usage
 
-- Load up the bundled file (`dist/bundle.js`) in you document.
+- Install the package with
+  - npm i https://github.com/endrehek/editorjs-markdown-parser.git
 - Add the Importer/Exporter to the EditorJS tools.
 
 ```js
@@ -84,3 +86,5 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## Acknowledgements
 
 * [Lukas Gabsi](https://github.com/gabsii) - Helped me with his JS expertise
+* [stejul](https://github.com/stejul) - Original parser
+* [leon6002](https://github.com/leon6002) - Updated fork for npm
