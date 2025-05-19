@@ -1,9 +1,9 @@
 {
   "name": "editorjs-md-parser",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Import from markdown and export editorjs data to markdown",
   "author": {
-    "name": "Paolo William Carrara"
+    "name": "Endre Heksum"
   },
   "scripts": {
     "build": "webpack --mode production && npm link",
