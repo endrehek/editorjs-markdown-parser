@@ -177,7 +177,7 @@ export default class MarkdownImporter {
     blocksData = blocksData.filter((item) => item.type !== 'markdownImporter');
 
     // Filter blocks and remove empty paragraphs
-    blocksData = blocksData.filter((block) => (!(block.type === 'paragraph' && block.data.text === '')));
+    // blocksData = blocksData.filter((block) => (!(block.type === 'paragraph' && block.data.text === '')));
 
     // render the editor with imported markdown data
     this.api.blocks.render({
