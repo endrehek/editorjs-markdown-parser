@@ -12,20 +12,18 @@ export function parseListToMarkdown(blocks) {
 }
 
 export function parseMarkdownToList(blocks) {
-  let list = {};
+  let listData = {};
   const itemData = [];
 
-  blocks.children.forEach((items) => {
-    items.children.forEach((listItem) => {
-      listItem.children.forEach((listEntry) => {
-        if (listEntry.value !== undefined) {
-          itemData.push(listEntry.value);
-        }
+  blocks.children.filter((v) => v !== undefined).forEach((items) => {
+    items.children.filter((v) => v !== undefined).forEach((listItem) => {
+      listItem.children.filter((v) => v.value !== undefined).forEach((listEntry) => {
+        itemData.push(listEntry.value);
       });
     });
   });
 
-  list = {
+  listData = {
     data: {
       items: itemData,
       style: blocks.ordered ? 'ordered' : 'unordered',
@@ -33,5 +31,5 @@ export function parseMarkdownToList(blocks) {
     type: 'list',
   };
 
-  return list;
+  return listData;
 }
