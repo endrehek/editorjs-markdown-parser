@@ -12,20 +12,20 @@ export function parseListToMarkdown(blocks) {
 }
 
 export function parseMarkdownToList(blocks) {
-  let listData = {};
+  let list = {};
   const itemData = [];
 
   blocks.children.forEach((items) => {
     items.children.forEach((listItem) => {
       listItem.children.forEach((listEntry) => {
-        if (listEntry !== undefined) {
+        if (listEntry.value !== undefined) {
           itemData.push(listEntry.value);
         }
       });
     });
   });
 
-  listData = {
+  list = {
     data: {
       items: itemData,
       style: blocks.ordered ? 'ordered' : 'unordered',
@@ -33,5 +33,5 @@ export function parseMarkdownToList(blocks) {
     type: 'list',
   };
 
-  return listData;
+  return list;
 }
