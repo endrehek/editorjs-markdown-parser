@@ -15,9 +15,9 @@ export function parseMarkdownToList(blocks) {
   let listData = {};
   const itemData = [];
 
-  blocks.children.filter((v) => v !== undefined).forEach((items) => {
-    items.children.filter((v) => v !== undefined).forEach((listItem) => {
-      listItem.children.filter((v) => v.value !== undefined).forEach((listEntry) => {
+  blocks.children.forEach((items) => {
+    items.children.forEach((listItem) => {
+      listItem.children.forEach((listEntry) => {
         itemData.push(listEntry.value);
       });
     });
