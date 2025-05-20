@@ -1,6 +1,7 @@
 import * as remark from 'remark';
 import remarkParse from 'remark-parse';
-import remarkGfm from 'remark-gfm';
+// import remarkGfm from 'remark-gfm';
+import remarkSqueezeParagraphs from 'remark-squeeze-paragraphs';
 
 import { parseMarkdownToHeader } from './BlockTypeParsers/HeaderTypeParser';
 import { parseMarkdownToParagraph } from './BlockTypeParsers/ParagraphTypeParser';
@@ -22,7 +23,8 @@ export async function parseToBlocks(content) {
   // parse markdown to editor data
   const parsedMarkdown = remark()
     .use(remarkParse, { commonmark: true })
-    .use(remarkGfm)
+    // .use(remarkGfm)
+    .use(remarkSqueezeParagraphs)
     .parse(content);
   // parse children recursively and return editor data blocks
   function parseChildren(children) {
