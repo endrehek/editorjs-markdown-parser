@@ -24,7 +24,6 @@ export async function parseToBlocks(content) {
     .use(remarkParse, { commonmark: true })
     .use(remarkGfm)
     .parse(content);
-  console.log('Parsed markdown:', parsedMarkdown);
   // parse children recursively and return editor data blocks
   function parseChildren(children) {
     const result = [];
