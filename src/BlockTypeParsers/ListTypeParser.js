@@ -17,8 +17,24 @@ export function parseMarkdownToList(blocks) {
 
   blocks.children.forEach((items) => {
     items.children.forEach((listItem) => {
-      listItem.children.forEach((listEntry) => {
-        itemData.push(listEntry.value);
+      listItem.children.forEach((item) => {
+        let text = '';
+        item.children.forEach((row) => {
+          if (row.type === 'text') {
+            text += row.value;
+          } else if (row.type === 'emphasis') {
+            text += `<i>${row.children[0].value}<i>`;
+          } else if (row.type === 'strong') {
+            text += `<b>${row.children[0].value}<b>`;
+          } else if (row.type === 'strongEmphasis') {
+            text += `<b><i>${row.children[0].value}<i><b>`;
+          } else if (row.type === 'link') {
+            text += `<a href="${row.url}">${row.children[0].value}</a>`;
+          } else if (row.type === 'inlineCode') {
+            text += `<code class="inline-code">${row.value}</code>`;
+          }
+        });
+        itemData.push(text);
       });
     });
   });
