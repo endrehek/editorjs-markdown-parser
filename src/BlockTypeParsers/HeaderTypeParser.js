@@ -18,80 +18,31 @@ export function parseHeaderToMarkdown(blocks) {
 
 export function parseMarkdownToHeader(blocks) {
   let headerData = {};
+  let headerText = '';
 
-  switch (blocks.depth) {
-    case 1:
-      blocks.children.forEach((item) => {
-        headerData = {
-          data: {
-            level: 1,
-            text: item.value,
-          },
-          type: 'header',
-        };
-      });
+  blocks.children.forEach((item) => {
+    if (item.type === 'text') {
+      headerText += item.value;
+    } else if (item.type === 'emphasis') {
+      headerText += `<i>${item.children[0].value}<i>`;
+    } else if (item.type === 'strong') {
+      headerText += `<b>${item.children[0].value}<b>`;
+    } else if (item.type === 'strongEmphasis') {
+      headerText += `<b><i>${item.children[0].value}<i><b>`;
+    } else if (item.type === 'link') {
+      headerText += `<a href="${item.url}">${item.children[0].value}</a>`;
+    } else if (item.type === 'inlineCode') {
+      headerText += `<code class="inline-code">${item.value}</code>`;
+    }
+  });
 
-      return headerData;
-    case 2:
-      blocks.children.forEach((item) => {
-        headerData = {
-          data: {
-            level: 2,
-            text: item.value,
-          },
-          type: 'header',
-        };
-      });
+  headerData = {
+    data: {
+      level: blocks.depth,
+      text: headerText,
+    },
+    type: 'header',
+  };
 
-      return headerData;
-    case 3:
-      blocks.children.forEach((item) => {
-        headerData = {
-          data: {
-            level: 3,
-            text: item.value,
-          },
-          type: 'header',
-        };
-      });
-
-      return headerData;
-    case 4:
-      blocks.children.forEach((item) => {
-        headerData = {
-          data: {
-            level: 4,
-            text: item.value,
-          },
-          type: 'header',
-        };
-      });
-
-      return headerData;
-    case 5:
-      blocks.children.forEach((item) => {
-        headerData = {
-          data: {
-            level: 5,
-            text: item.value,
-          },
-          type: 'header',
-        };
-      });
-
-      return headerData;
-    case 6:
-    default:
-      blocks.children.forEach((item) => {
-        headerData = {
-          data: {
-            level: 6,
-            text: item.value,
-          },
-          type: 'header',
-        };
-      });
-
-      return headerData;
-  }
+  return headerData;
 }
