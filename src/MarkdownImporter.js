@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import * as remark from 'remark';
 import remarkParse from 'remark-parse';
 // import remarkGfm from 'remark-gfm';
@@ -27,6 +28,7 @@ export async function parseToBlocks(content) {
     .use(remarkSqueezeParagraphs)
     .parse(content);
   // parse children recursively and return editor data blocks
+  console.log(parsedMarkdown);
   function parseChildren(children) {
     const result = [];
     children.forEach((child) => {
