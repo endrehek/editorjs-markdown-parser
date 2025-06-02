@@ -33,8 +33,10 @@ module.exports = {
     libraryTarget: 'umd',
   },
   devServer: {
-    index: 'index.html',
-    compress: true,
+    // index: 'index.html',
+    compress: false,
+    liveReload: true,
+    watchFiles: ['*.js'],
     port: 8000,
   },
 };

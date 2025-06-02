@@ -22,7 +22,7 @@ export const editorData = [];
 export async function parseToBlocks(content) {
   // parse markdown to editor data
   const parsedMarkdown = remark()
-    .use(remarkParse, { commonmark: true })
+    .use(remarkParse)
     // .use(remarkGfm)
     .use(remarkSqueezeParagraphs)
     .parse(content);

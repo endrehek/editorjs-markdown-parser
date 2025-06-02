@@ -11,25 +11,25 @@
     "dev": "webpack-dev-server"
   },
   "devDependencies": {
-    "@babel/core": "^7.11.4",
-    "@babel/preset-env": "^7.11.0",
-    "babel-loader": "^8.1.0",
-    "eslint": "^7.7.0",
-    "eslint-config-airbnb-base": "14.2.0",
+    "@babel/core": "^7.27.4",
+    "@babel/preset-env": "^7.27.2",
+    "babel-loader": "^8.4.1",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
     "eslint-loader": "^4.0.2",
-    "eslint-plugin-import": "2.22.0",
-    "webpack": "^5.99.8",
+    "eslint-plugin-import": "^2.31.0",
+    "webpack": "^5.99.9",
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.1",
-    "webpack-merge-and-include-globally": "^2.1.26"
+    "webpack-merge-and-include-globally": "^2.3.4"
   },
   "main": "./dist/bundle.js",
   "dependencies": {
-    "css-loader": "^5.0.0",
-    "remark": "^13.0.0",
-    "remark-gfm": "^3.0.1",
-    "remark-parse": "^9.0.0",
+    "css-loader": "^5.2.7",
+    "remark": "^15.0.1",
+    "remark-gfm": "^4.0.1",
+    "remark-parse": "^11.0.0",
     "remark-squeeze-paragraphs": "^6.0.0",
-    "require": "^0.4.4"
+    "require": "^2.4.0"
   }
 }

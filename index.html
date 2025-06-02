@@ -8,6 +8,7 @@
         <script src="https://cdn.jsdelivr.net/npm/@editorjs/list@latest"></script><!-- List -->
         <script src="https://cdn.jsdelivr.net/npm/@editorjs/checklist@latest"></script><!-- Checklist -->
         <script src="https://cdn.jsdelivr.net/npm/@editorjs/quote@latest"></script><!-- Quote -->
+        <script src="https://cdn.jsdelivr.net/npm/@editorjs/table@latest"></script><!-- Table-->
         <script src="https://cdn.jsdelivr.net/npm/@editorjs/code@latest"></script><!-- Code -->
         <script src="https://cdn.jsdelivr.net/npm/@editorjs/embed@latest"></script><!-- Embed -->
         <script src="https://cdn.jsdelivr.net/npm/@editorjs/link@latest"></script><!-- Link -->
@@ -50,7 +51,7 @@
         <div id="output-wrapper">
             <div>
                 Use + button to import/export markdown file.
-                You can also load markdown dinamically from this textarea:
+                You can also load markdown dynamically from this textarea:
                 <div>
                     <textarea id="markdown-area" rows="2"></textarea>
                 </div>
@@ -94,6 +95,10 @@
                             captionPlaceholder: 'Quote\'s author',
                         },
                         shortcut: 'CMD+SHIFT+O'
+                    },
+                    
+                    table: {
+                        class: Table
                     },
 
                     warning: Warning,
