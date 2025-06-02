@@ -26,9 +26,10 @@ export async function parseToBlocks(content) {
     // .use(remarkGfm)
     .use(remarkSqueezeParagraphs)
     .parse(content);
+  console.log(parsedMarkdown);
   // parse children recursively and return editor data blocks
   function parseChildren(children) {
-    const result = [];
+    let result = [];
     children.forEach((child) => {
       switch (child.type) {
         case 'heading':
@@ -56,6 +57,7 @@ export async function parseToBlocks(content) {
           result.push(parseMarkdownToTable(child));
           break;
         default:
+          console.log('Default case:', child);
           result.push(parseMarkdownToParagraph(child));
           break;
       }
@@ -64,7 +66,9 @@ export async function parseToBlocks(content) {
         result.push(...childResult);
       }
     });
-    return result.filter((value) => Object.keys(value).length !== 0);
+    result = result.filter((value) => Object.keys(value).length !== 0);
+    // Filter blocks and remove empty paragraphs
+    return result.filter((block) => (!(block.type === 'paragraph' && block.data.text === '')));
   }
   return parseChildren(parsedMarkdown.children);
 }
@@ -177,9 +181,6 @@ export default class MarkdownImporter {
       ? this.insertArray(data.blocks, toBlocksData, this.api.blocks.getCurrentBlockIndex())
       : toBlocksData;
     blocksData = blocksData.filter((item) => item.type !== 'markdownImporter');
-
-    // Filter blocks and remove empty paragraphs
-    // blocksData = blocksData.filter((block) => (!(block.type === 'paragraph' && block.data.text === '')));
 
     // render the editor with imported markdown data
     this.api.blocks.render({
