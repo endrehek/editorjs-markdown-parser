@@ -26,7 +26,7 @@ export async function parseToBlocks(content) {
     // .use(remarkGfm)
     .use(remarkSqueezeParagraphs)
     .parse(content);
-  console.log(parsedMarkdown);
+  // console.log(parsedMarkdown);
   // parse children recursively and return editor data blocks
   function parseChildren(children) {
     let result = [];
