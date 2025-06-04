@@ -20,6 +20,9 @@ export const editorData = [];
  * @return {Array} - parsed editor data blocks
  */
 export async function parseToBlocks(content) {
+  
+  // Remove <br> from source text
+  content = content.replace('<br>*', '');
   // parse markdown to editor data
   const parsedMarkdown = remark()
     .use(remarkParse)
