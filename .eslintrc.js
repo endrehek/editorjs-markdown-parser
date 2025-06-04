@@ -1,10 +1,13 @@
+/* eslint-env node */
+require('@rushstack/eslint-patch/modern-module-resolution');
+
 module.exports = {
   env: {
     browser: true,
     es6: true,
   },
   extends: [
-    'airbnb-base',
+    'eslint:recommended',
   ],
   globals: {
     Atomics: 'readonly',
