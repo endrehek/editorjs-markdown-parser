@@ -6917,7 +6917,7 @@ async function Vn(e) {
           i.push(gr(l));
           break;
         default:
-          console.log("Default case:", l), i.push(It(l));
+          i.push(It(l));
           break;
       }
       if (l.children && l.type !== "list") {

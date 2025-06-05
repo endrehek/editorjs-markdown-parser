@@ -60,7 +60,7 @@ export async function parseToBlocks(content) {
           result.push(parseMarkdownToTable(child));
           break;
         default:
-          console.log('Default case:', child);
+          // console.log('Default case:', child);
           result.push(parseMarkdownToParagraph(child));
           break;
       }
