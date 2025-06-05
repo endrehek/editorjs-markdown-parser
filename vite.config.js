@@ -7,7 +7,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 export default defineConfig({
   build: {
     lib: {
-			name: 'MarkdownImporter',
+			name: 'editorjs-md-parser',
       entry: resolve(__dirname, 'src/index.js'),
       fileName: 'bundle',
     },

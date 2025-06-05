@@ -1,4 +1,4 @@
-(function(le,Ee){typeof exports=="object"&&typeof module<"u"?Ee(exports):typeof define=="function"&&define.amd?define(["exports"],Ee):(le=typeof globalThis<"u"?globalThis:le||self,Ee(le.MarkdownImporter={}))})(this,function(le){"use strict";function Ee(e){switch(e.level){case 1:return`# ${e.text}
+(function(le,Ee){typeof exports=="object"&&typeof module<"u"?Ee(exports):typeof define=="function"&&define.amd?define(["exports"],Ee):(le=typeof globalThis<"u"?globalThis:le||self,Ee(le["editorjs-md-parser"]={}))})(this,function(le){"use strict";function Ee(e){switch(e.level){case 1:return`# ${e.text}
 `;case 2:return`## ${e.text}
 `;case 3:return`### ${e.text}
 `;case 4:return`#### ${e.text}
