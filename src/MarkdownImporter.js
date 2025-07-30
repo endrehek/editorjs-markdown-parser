@@ -226,6 +226,7 @@ export default class MarkdownImporter {
     this.stringUploadInput = document.createElement('textarea');
     this.stringUploadInput.value = this.data && this.data.filename ? this.data.filename : '';
     this.stringUploadInput.classList.add('cdx-input');
+    this.stringUploadInput.style.height = '500px';
 
     this.wrapper.appendChild(this.stringUploadInput);
 
