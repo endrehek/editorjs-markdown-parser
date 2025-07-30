@@ -20,15 +20,16 @@ export const editorData = [];
  * @return {Array} - parsed editor data blocks
  */
 export async function parseToBlocks(content) {
+  filteredContent = content
+    .replaceAll('<br>*', '') // Remove <br> from source text
+    .replaceAll('/(?<=\|)[^a-zA-Z0-9\s-]+(?=\|)', ''); // Remove styling inside tables from source text
   
-  // Remove <br> from source text
-  content = content.replace('<br>*', '');
   // parse markdown to editor data
   const parsedMarkdown = remark()
     .use(remarkParse)
     .use(remarkGfm)
     // .use(remarkSqueezeParagraphs)
-    .parse(content);
+    .parse(filteredContent);
   // console.log(parsedMarkdown);
   // parse children recursively and return editor data blocks
   function parseChildren(children) {

@@ -6886,8 +6886,8 @@ function Lu(e) {
   i.push(zu(t)), l.push(Yo()), a.push(Zo(t));
 }
 async function Vn(e) {
-  e = e.replace("<br>*", "");
-  const n = Kl().use(kn).use(Lu).parse(e);
+  filteredContent = e.replaceAll("<br>*", "").replaceAll("/(?<=|)[^a-zA-Z0-9s-]+(?=|)", "");
+  const n = Kl().use(kn).use(Lu).parse(filteredContent);
   function t(r) {
     let i = [];
     return r.forEach((l) => {
