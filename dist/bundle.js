@@ -6886,7 +6886,7 @@ function Lu(e) {
   i.push(zu(t)), l.push(Yo()), a.push(Zo(t));
 }
 async function Vn(e) {
-  filteredContent = e.replaceAll("<br>*", "").replaceAll("(| *)[^a-zA-Z0-9s-]+|[^a-zA-Z0-9s-]+( *|)", "");
+  filteredContent = e.replaceAll("<br>*", "").replaceAll(/(\| *)[^a-zA-Z0-9\s-]+/g, "| ").replaceAll(/[^a-zA-Z0-9\s-]+( *\|)/g, " |");
   const n = Kl().use(kn).use(Lu).parse(filteredContent);
   function t(r) {
     let i = [];

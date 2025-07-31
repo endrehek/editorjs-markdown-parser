@@ -22,7 +22,8 @@ export const editorData = [];
 export async function parseToBlocks(content) {
   filteredContent = content
     .replaceAll('<br>*', '') // Remove <br> from source text
-    .replaceAll('(\| *)[^a-zA-Z0-9\s-]+|[^a-zA-Z0-9\s-]+( *\|)', ''); // Remove styling inside tables from source text
+    .replaceAll(/(\| *)[^a-zA-Z0-9\s-]+/g, '| ') // Remove styling inside tables from source text
+    .replaceAll(/[^a-zA-Z0-9\s-]+( *\|)/g, ' |');
   
   // parse markdown to editor data
   const parsedMarkdown = remark()
